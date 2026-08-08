@@ -208,6 +208,10 @@ a:visited, a:hover, a:active {
   color: rgba(7, 14, 43, 0.5);
 }
 
+ul {
+  padding: 0;
+  margin: 0 0 0 1.25rem;
+}
 .container {
   width: 100%;
   margin-inline: auto;
