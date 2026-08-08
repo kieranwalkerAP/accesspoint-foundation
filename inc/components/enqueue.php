@@ -20,9 +20,7 @@ function accesspoint_foundation_scripts() {
 
     wp_enqueue_script( 'main-js', get_template_directory_uri() . '/dist/main.js', [], $script_version, true);
 
-    wp_localize_script(
-        'main-js',
-        'ajaxSearchData',
+    wp_localize_script('main-js', 'ajaxSearchData',
         [
             'ajax_url' => admin_url('admin-ajax.php'),
             'nonce'    => wp_create_nonce('ajax_search_nonce'),

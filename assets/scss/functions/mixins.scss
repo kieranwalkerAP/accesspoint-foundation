@@ -29,7 +29,7 @@
 
 @mixin flex-end($layout) {
   display: flex;
-   flex-direction: $layout;
+  flex-direction: $layout;
   justify-content: flex-end;
   align-items: flex-end;
 }

@@ -3,7 +3,20 @@
   padding: rem(45px) 0;
 
   &__inner {
-    &--legal {}
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: rem(30px);
+
+    &--legal {
+      @include flex-start(column);
+      gap: rem(28px);
+      @media (min-width: 992px) {
+        flex: 1 1 calc(50% - rem(15px));
+        max-width: calc(50% - rem(15px));
+        gap: rem(40px);
+      }
+    }
     &--logo {
       img {
           transition: .6s ease-in-out all;
@@ -22,7 +35,15 @@
     }
 
     &--links {
-
+      @include flex-start(column);
+      gap: rem(28px);
+    
+      @media (min-width: 992px) {
+        @include flex-end(column);
+        gap: rem(40px);
+        flex: 1 1 calc(50% - rem(15px));
+        max-width: calc(50% - rem(15px));
+      }
     }
 
     &--link {
@@ -39,6 +60,32 @@
           color: $primary-colour;
         }
         
+      }
+    }
+
+    &--social {
+
+    }
+
+    &--social-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      @include flex-start(row);
+      gap: rem(12px);
+    }
+    &--social-item {
+      a {
+
+        &:hover {
+          i {
+            color: $secondary-colour;
+          }
+        }
+        i {
+          color: $primary-colour;
+          transition: .6s ease-in-out all;
+        }
       }
     }
   }
