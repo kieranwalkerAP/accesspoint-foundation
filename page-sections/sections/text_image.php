@@ -12,7 +12,7 @@
 ?>
 
 <section class="text-image background-<?php echo $background ?>">
-  <div class="text-image__inner container <?php echo $imagePosition ? 'orientation-left' : 'orientation-right'; ?>">
+  <div class="text-image__inner container <?php echo $imagePosition === 'right' ? 'orientation-right' : 'orientation-left'; ?>">
         <?php if ( $image ) : ?>
           <div class="text-image__inner--image">
             <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt']); ?>" class="image"/>
