@@ -1,5 +1,6 @@
 <?php
 	$blog_preview_image = has_post_thumbnail() ? get_the_post_thumbnail_url( get_the_ID(), '' ) : get_field( 'blog_hero_image', 'option' );
+	$categories = get_the_category();
 ?>
 
 <div class="blog__preview" data-post-id="<?php echo get_the_ID(); ?>">
@@ -9,9 +10,11 @@
 	<div class="blog__preview--content">
 		<div class="blog__preview--meta">
 
-			<?php if ( has_category() ) : ?>
+			<?php if ( ! empty($categories) ): ?>
 				<div class="blog__preview--category">
-					<?php the_category( ', ' ); ?>
+					<?php foreach ($categories as $category): ?>
+						<?php echo esc_html($category->name); ?>
+					<?php endforeach; ?>
 				</div>
 			<?php endif; ?>
 
