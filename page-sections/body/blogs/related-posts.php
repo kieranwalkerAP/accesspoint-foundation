@@ -1,8 +1,16 @@
 <?php 
     $related_posts_title   = get_field('related_posts_title', 'option');
     $related_posts_content = get_field('related_posts_content', 'option');
+
+    $related_query = new WP_Query( array(
+        'post_type'      => 'post',
+        'post_status'    => 'publish',
+        'post__not_in'   => array( get_the_ID() ),
+        'posts_per_page' => -1,
+    ) );
 ?>
 
+<?php if ( $related_query->have_posts() ) : ?>
 <section class="blog__related-posts">
     <div class="blog__related-posts--inner container">
 
@@ -26,30 +34,16 @@
 
             <div class="blog__related-posts--slider">
 
-                <?php
-                    $related_query = new WP_Query( array(
-                        'post_type'      => 'post',
-                        'post_status'    => 'publish',
-                        'post__not_in'   => array( get_the_ID() ),
-                        'posts_per_page' => -1,
-                    ) );
+                <?php while ( $related_query->have_posts() ) : $related_query->the_post(); ?>
+                    <div class="blog__related-posts--slide">
+                        <?php get_template_part('page-sections/body/blogs/preview'); ?>
+                    </div>
+                <?php endwhile; ?>
 
-                    if ( $related_query->have_posts() ) :
-                        while ( $related_query->have_posts() ) : $related_query->the_post();
-                            ?>
-                            <div class="blog__related-posts--slide">
-                                <?php get_template_part('page-sections/body/blogs/preview'); ?>
-                            </div>
-                            <?php
-                        endwhile;
-                        wp_reset_postdata();
-                    endif;
-                ?>
             </div>
-
             <div class="blog__related-posts--controlls"></div>
-
         </div>
 
     </div>
 </section>
+<?php endif; wp_reset_postdata(); ?>
