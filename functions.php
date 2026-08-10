@@ -33,6 +33,12 @@ require get_template_directory() . '/inc/components/content-widths.php';
 
 require get_template_directory() . '/inc/components/widgets.php';
 
+/**
+ * Excerpt settings
+ */
+
+require get_template_directory() . '/inc/components/excerpt.php';
+
 
 /**
  * Enqueue
