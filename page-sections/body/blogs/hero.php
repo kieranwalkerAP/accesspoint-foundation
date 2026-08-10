@@ -1,28 +1,39 @@
 <?php 
-  $title = get_field('title') ?: get_the_title(); 
-  $content = get_field('content');
-  $image = get_field('hero_image') ?: get_field('fallback_hero_image', 'option');
-  $link = get_field('hero_link')
+  $title   = get_the_title(); 
+  $content = get_the_excerpt();
+  $image   = get_field('blog_image') ?: get_field('blog_hero_image', 'option');
+  $categories = get_the_category();
 ?>
 
-<section class="hero-blog" style="background-image: url('<?php echo esc_url($image); ?>'); background-size: cover; background-position: center; background-repeat: no-repeat">
-  <div class="container">
-      <div class="hero-blog__content">
-          <h1 class="hero-blog__content--title"><?php echo esc_html($title); ?></h1>
+<section class="hero-blog">
+  <div class="hero-blog__inner container">
+      <div class="hero-blog__inner--content">
 
-          <?php if($content): ?>
-            <div class="hero-blog__content--copy">
-              <?php echo ($content) ?>
-            </div>
-          <?php endif ?>
-
-          <?php if( $link ): 
-              $link_url = $link['url'];
-              $link_title = $link['title'];
-              $link_target = $link['target'] ? $link['target'] : '_self';
-            ?>
-            <a class="button button-primary" href="<?php echo esc_url( $link_url ); ?>" target="<?php echo esc_attr( $link_target ); ?>"><?php echo esc_html( $link_title ); ?></a>
+          <?php if ( ! empty($categories) ): ?>
+              <div class="hero-blog__inner--categories">
+                  <?php foreach ($categories as $category): ?>
+                      <a href="<?php echo esc_url( get_category_link($category->term_id) ); ?>" class="hero-blog__inner--category">
+                          <?php echo esc_html($category->name); ?>
+                      </a>
+                  <?php endforeach; ?>
+              </div>
           <?php endif; ?>
+
+          <h1 class="hero-blog__inner--title"><?php echo esc_html($title); ?></h1>
+
+          <?php if ($content): ?>
+              <div class="hero-blog__inner--excerpt">
+                  <?php echo wp_kses_post($content); ?>
+              </div>
+          <?php endif; ?>
+
+          <time class="hero-blog__inner--date" datetime="<?php echo esc_attr( get_the_date('c') ); ?>">
+              <?php echo esc_html( get_the_date() ); ?>
+          </time>
+      </div>
+  
+      <div class="hero-blog__inner--image">
+        <img src="<?php echo esc_url($image); ?>" alt="<?php echo esc_attr($title); ?>" />
       </div>
   </div>
 </section>
