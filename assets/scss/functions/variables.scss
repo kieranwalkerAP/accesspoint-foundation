@@ -7,6 +7,15 @@ $green: #00bd79;
 $red: #fe5e76;
 $off-white: #f7f9fb;
 
+$colours: (
+  "primary-colour": $primary-colour,
+  "secondary-colour": $secondary-colour,
+  "white": $white,
+  "green": $green,
+  "red": $red,
+  "off-white": $off-white,
+);
+
 //Fonts
 
 $heading-font: "Lexend Deca", sans-serif;
