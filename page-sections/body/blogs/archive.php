@@ -8,7 +8,7 @@
             <?php endwhile; ?>
 
             <div class="blog__archive--navigation">
-                <?php the_posts_navigation(); ?>
+                <?php get_template_part('components/pagination'); ?>
             </div>
 
         <?php else : ?>
