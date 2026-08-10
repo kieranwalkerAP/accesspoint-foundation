@@ -12,9 +12,7 @@
           <?php if ( ! empty($categories) ): ?>
               <div class="hero-blog__inner--categories">
                   <?php foreach ($categories as $category): ?>
-                      <a href="<?php echo esc_url( get_category_link($category->term_id) ); ?>" class="hero-blog__inner--category">
-                          <?php echo esc_html($category->name); ?>
-                      </a>
+                      <?php echo esc_html($category->name); ?>
                   <?php endforeach; ?>
               </div>
           <?php endif; ?>
