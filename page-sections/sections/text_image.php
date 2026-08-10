@@ -7,7 +7,7 @@
   $title = get_sub_field('title');
   $image = get_sub_field('image');
   $imagePosition = get_sub_field('image_position');
-  $button_class = $background === 'primary-colour' ? 'white' : ($background === 'secondary-colour' ? 'dark' : 'primary-colour');
+  $button_class = $background === 'primary-colour' ? 'white' : ($background === 'secondary-colour' ? 'button-primary' : 'primary-colour');
 
 ?>
 
