@@ -8,7 +8,6 @@
             padding: rem(40px) 0
         }
     }
-    
     &__archive {
         padding: rem(55px) 0;
     
@@ -60,6 +59,7 @@
             width: 100%;
             height: rem(350px);
             border-radius: rem(8px);
+            flex-shrink: 0;
             background-position: center;
             background-size: cover;
             background-repeat: no-repeat;
@@ -91,9 +91,10 @@
         }
 
         &--content {
-            @include flex-start(column);
+            @include flex-between(column);
             align-items: flex-start;
             gap: rem(30px);
+            height: 100%;
         }
     }
 
