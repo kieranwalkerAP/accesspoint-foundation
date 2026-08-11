@@ -69,11 +69,18 @@
             @include flex-start(column);
             gap: rem(12px);
         }
+        &--categories{ 
+            display: flex;
+            flex-wrap: wrap;
+            gap: rem(8px);
+        }
 
         &--category{
-            a {
-
-            }
+            border-radius: rem(50px);
+            border: rem(1px) solid rgba($primary-colour, .35);
+            padding: rem(4px) rem(16px);
+            font-size: rem(14px);
+            color: $purple;
         }
 
         &--title {

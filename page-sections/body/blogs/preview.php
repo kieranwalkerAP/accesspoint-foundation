@@ -11,9 +11,11 @@
 		<div class="blog__preview--meta">
 
 			<?php if ( ! empty($categories) ): ?>
-				<div class="blog__preview--category">
+				<div class="blog__preview--categories">
 					<?php foreach ($categories as $category): ?>
-						<?php echo esc_html($category->name); ?>
+						<span class="blog__preview--category">
+							<?php echo esc_html($category->name); ?>
+						</span>
 					<?php endforeach; ?>
 				</div>
 			<?php endif; ?>
