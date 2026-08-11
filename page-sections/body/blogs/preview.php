@@ -31,7 +31,7 @@
 			<?php endif; ?>
 		</div>
 		<div class="blog__preview--link">
-			<a href="<?php the_permalink()?>" class="button button-primary">Read blog</a>
+			<a href="<?php the_permalink()?>" class="button button-primary-colour">Read blog</a>
 		</div>
 	</div>
 
